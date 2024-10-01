@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Card from "./Card";
 
 function Product() {
+
+
   const Filter = [
     {
       filter: "All Product",
@@ -19,10 +21,190 @@ function Product() {
       filter: "Phone Accessories",
     },
     {
-      filter: "Limited Edition",
+      filter: "Limited",
       sort: "Recomended",
     },
   ];
+
+  const products = [
+    {
+      id: 1,
+      name: "Crystal Agate Phone Gripct",
+      price: "18.99$",
+      image: "../assets/item.png",
+      filter: "Jewelry",
+      sort: "Best Selling",
+    },
+    {
+      id: 2,
+      name: "Crystal Agate Phone Gripct",
+      price: "18.99$",
+      image: "../assets/item.png",
+      filter: "Jewelry",
+      sort: "On Sale",
+    },
+    {
+      id: 3,
+      name: "Crystal Agate Phone Gripct",
+      price: "18.99$",
+      image: "../assets/item.png",
+      filter: "Phone Accessories",
+      sort: "Best Selling",
+    },
+    {
+      id: 4,
+      name: "Crystal Agate Phone Gripct",
+      price: "18.99$",
+      image: "../assets/item.png",
+      filter: "Jewelry",
+      sort: "On Sale",
+    },
+    {
+      id: 5,
+      name: "Crystal Agate Phone Gripct",
+      price: "18.99$",
+      image: "../assets/item.png",
+      filter: "Limited",
+      sort: "New Arrivals",
+    },
+    {
+      id: 6,
+      name: "Crystal Agate Phone Gripct",
+      price: "18.99$",
+      image: "../assets/item.png",
+      filter: "Phone Accessories",
+      sort: "On Sale",
+    },
+    {
+      id: 7,
+      name: "Crystal Agate Phone Gripct",
+      price: "18.99$",
+      image: "../assets/item.png",
+      filter: "crystals",
+      sort: "On Sale",
+    },
+    {
+      id: 8,
+      name: "Crystal Agate Phone Gripct",
+      price: "18.99$",
+      image: "../assets/item.png",
+      filter: "Limited",
+      sort: "New Arrivals",
+    },
+    {
+      id: 9,
+      name: "Crystal Agate Phone Gripct",
+      price: "18.99$",
+      image: "../assets/item.png",
+      filter: "Phone Accessories",
+      sort: "New Arrivals",
+    },
+    {
+      id: 10,
+      name: "Crystal Agate Phone Gripct",
+      price: "18.99$",
+      image: "../assets/item.png",
+      filter: "crystals",
+      sort: "New Arrivals",
+    },
+    {
+      id: 11,
+      name: "Crystal Agate Phone Gripct",
+      price: "18.99$",
+      image: "../assets/item.png",
+      filter: "Limited",
+      sort: "On Sale",
+    },
+    {
+      id: 12,
+      name: "Crystal Agate Phone Gripct",
+      price: "18.99$",
+      image: "../assets/item.png",
+      filter: "Limited",
+      sort: "Recomended",
+    },
+    {
+      id: 13,
+      name: "Crystal Agate Phone Gripct",
+      price: "18.99$",
+      image: "../assets/item.png",
+      filter: "crystals",
+      sort: "Best Selling",
+    },
+    {
+      id: 14,
+      name: "Crystal Agate Phone Gripct",
+      price: "18.99$",
+      image: "../assets/item.png",
+      filter: "Limited",
+      sort: "Recomended",
+    },
+    {
+      id: 15,
+      name: "Crystal Agate Phone Gripct",
+      price: "18.99$",
+      image: "../assets/item.png",
+      filter: "crystals",
+      sort: "Best Selling",
+    },
+    {
+      id: 16,
+      name: "Crystal Agate Phone Gripct",
+      price: "18.99$",
+      image: "../assets/item.png",
+      filter: "Limited",
+      sort: "Recomended",
+    },
+  ];
+
+  let [FilterProduct, setFilterProduct] = useState([]);
+  useEffect(() => {
+    setFilterProduct(products);
+  }, []);
+
+  const [filter, setFilter] = useState("All Product");
+  const [sort, setsort] = useState("Best Selling");
+
+  let collect = [];
+  const handleonchange = (event) => {
+    setFilter(event.target.value);
+    const selectedValue = event.target.value;
+    console.log(selectedValue, selectedValue==="All Product");
+    
+
+    if (selectedValue === "All Product") {
+      
+      collect=products
+      
+      setFilterProduct(collect)
+      
+     
+      } else {
+    collect = products.filter(
+      (product) => product.filter.toLowerCase() === selectedValue.toLowerCase()
+    );
+  }
+
+   
+    setFilterProduct(collect);
+  };
+
+  const handleonchangesort = (event) => {
+    setsort(event.target.value);
+    console.log(event.target.value);
+    
+    const selectedValue = event.target.value;
+
+    collect = products.filter(
+      (product) => product.sort.toLowerCase() === selectedValue.toLowerCase()
+    );
+
+ 
+    
+
+    setFilterProduct(collect)
+        
+  };
 
   const [isView, setIsView] = useState(false);
 
@@ -35,6 +217,8 @@ function Product() {
         <div className="flex items-center gap-1">
           <p className="text-[#9AB0C0] font-bold">Filter:</p>
           <select
+            onChange={handleonchange}
+            value={filter}
             className="block w-36 px-2 py-2  font-bold leading-tight border border-none rounded-lg outline-none text-[#31546D]"
             name="filter"
             id="filter"
@@ -49,6 +233,8 @@ function Product() {
         <div className="flex items-center gap-1">
           <p className="text-[#9AB0C0] font-bold">Sort:</p>
           <select
+          onChange={handleonchangesort}
+          value={sort}
             className="block w-36 px-3 py-2 pr-2 font-bold leading-tight border border-none rounded-lg outline-none text-[#31546D]"
             name="filter"
             id="filter"
@@ -71,61 +257,15 @@ function Product() {
           isView ? "lg:max-h-[auto]" : "lg:max-h-[115vh]"
         } justify-center lg:justify-start lg:max-w-[1440px] flex flex-wrap gap-3 py-3 px-6 lg:overflow-hidden `}
       >
-        <Card
-          image="../assets/item.png"
-          name="Crystal Agate Phone Grip"
-          price="18.99$"
-        />
-        <Card
-          image="../assets/item.png"
-          name="Crystal Agate Phone Grip"
-          price="18.99$"
-        />
-        <Card
-          image="../assets/item.png"
-          name="Crystal Agate Phone Grip"
-          price="18.99$"
-        />
-        <Card
-          image="../assets/item.png"
-          name="Crystal Agate Phone Grip"
-          price="18.99$"
-        />
-        <Card
-          image="../assets/item.png"
-          name="Crystal Agate Phone Grip"
-          price="18.99$"
-        />
-        <Card
-          image="../assets/item.png"
-          name="Crystal Agate Phone Grip"
-          price="18.99$"
-        />
-        <Card
-          image="../assets/item.png"
-          name="Crystal Agate Phone Grip"
-          price="18.99$"
-        />
-        <Card
-          image="../assets/item.png"
-          name="Crystal Agate Phone Grip"
-          price="18.99$"
-        />
-        <Card
-          image="../assets/item.png"
-          name="Crystal Agate Phone Grip"
-          price="18.99$"
-        />
-        <Card
-          image="../assets/item.png"
-          name="Crystal Agate Phone Grip"
-          price="18.99$"
-        />
-        <Card
-          image="../assets/item.png"
-          name="Crystal Agate Phone Grip"
-          price="18.99$"
-        />
+        {FilterProduct &&
+          FilterProduct.map((product) => (
+            <Card
+              key={product.id}
+              name={product.name}
+              image={product.image}
+              price={product.price}
+            />
+          ))}
       </div>
 
       {/* View More */}
