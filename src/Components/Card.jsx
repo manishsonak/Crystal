@@ -6,7 +6,7 @@ function Card({image,price,name}) {
      <img src={image && defaultImage}  alt="" />
      <h2 className='text-xl text-center text-gray-700 uppercase'>{name}</h2>
      <h3 className='text-xl font-semibold text-[#317189]'>{price}</h3>
-     <button className="my-4  w-[180px] h-[56px] rounded-2xl  font-semibold hover:shadow-xl  hover:text-white   border-2 border-[#75CCEB] text-[#75CCEB] hover:bg-gradient-to-r from-[#75CCEB] to-[#6FB4FF] py-2 px-4 transition duration-300">BUY NOW</button>
+     <button className="my-4  w-[180px] h-[56px] rounded-2xl  font-semibold hover:shadow-xl active:scale-95 hover:text-white   border-2 border-[#75CCEB] text-[#75CCEB] hover:bg-gradient-to-r from-[#75CCEB] to-[#6FB4FF] py-2 px-4 transition duration-300">BUY NOW</button>
     </div>
   )
 }

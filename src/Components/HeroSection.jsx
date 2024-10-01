@@ -37,8 +37,8 @@ function HeroSection() {
           </p>
 
           <div className="flex flex-col gap-2 button lg:flex-row">
-            <button className="bg-white hover:bg-[#317189] hover:text-white text-[#317189]  py-4 font-semibold   px-10 rounded-2xl">SHOP NOW</button>
-            <button className=" hover:bg-[#317189] hover:text-white text-[#317189]  py-4  font-normal  px-10 rounded-2xl">about us</button>
+            <button className="bg-white hover:bg-[#317189] hover:text-white text-[#317189]  py-4 font-semibold   px-10 rounded-2xl active:scale-95">SHOP NOW</button>
+            <button className=" hover:bg-[#317189] hover:text-white text-[#317189]  py-4  font-normal  px-10 rounded-2xl active:scale-95">about us</button>
           </div>
     
         </div>
@@ -49,13 +49,13 @@ function HeroSection() {
             </div>
 
             <div className='flex items-center justify-center gap-3 mt-10'>
-            <button className='mx-2' onClick={leftclick}><img src={left} alt="" /></button>
+            <button className='mx-2 active:scale-95' onClick={leftclick}><img src={left} alt="" /></button>
     {
       image.map((item, index) => (
         <h1 key={index} className={`w-[14px] h-[14px] rounded-full ${currentstate===index?"bg-[#8A93E5]":"bg-[#D7DBFF]"}`}></h1>
       ))
     }
-            <button className='mx-2' onClick={rightclick}><img src={right} alt="" /></button>
+            <button className='mx-2 active:scale-95' onClick={rightclick}><img src={right} alt="" /></button>
             </div>
 
         </div>

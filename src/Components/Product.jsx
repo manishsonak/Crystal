@@ -255,7 +255,7 @@ function Product() {
       <div
         className={`mt-3  lg:mx-auto overflow-y-auto   ${
           isView ? "lg:max-h-[auto]" : "lg:max-h-[115vh]"
-        } justify-center lg:justify-start lg:max-w-[1440px] flex flex-wrap gap-3 py-3 px-6 lg:overflow-hidden `}
+        } justify-center lg:justify-start lg:max-w-[1440px] flex flex-wrap gap-3 py-3 px-6 lg:overflow-hidden transition transform duration-150 ease-in-out `}
       >
         {FilterProduct &&
           FilterProduct.map((product) => (
@@ -275,7 +275,7 @@ function Product() {
           onClick={() => {
             setIsView(!isView);
           }}
-          className="my-4  w-[134px] h-[48px] rounded-2xl  font-semibold hover:shadow-lg  hover:text-white   border-2 border-[#75CCEB] text-[#75CCEB] hover:bg-gradient-to-r from-[#75CCEB] to-[#6FB4FF] py-2 px-4 transition duration-300"
+          className="my-4 active:scale-95 w-[134px] h-[48px] rounded-2xl  font-semibold hover:shadow-lg  hover:text-white   border-2 border-[#75CCEB] text-[#75CCEB] hover:bg-gradient-to-r from-[#75CCEB] to-[#6FB4FF] py-2 px-4 transition duration-300"
         >
           {isView ? "View Less" : "View All"}
         </button>

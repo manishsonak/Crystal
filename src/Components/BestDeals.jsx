@@ -12,7 +12,7 @@ function BestDeals() {
                 </div>
                 <p className="lg:w-[430px] text-[16px] lg:text-right text-center px-3 lg:px-0 text-[#31546D]" >These Pop Rock Crystal grip tops can be swapped with other tops depending on your mood, outfit, nails, phone case, holiday, etc.! Just gently squeeze the sides to remove and swap out with another color or design!
                 </p>
-                <button className="my-7  w-[180px] h-[56px] rounded-2xl text-white font-semibold bg-gradient-to-r from-[#75CCEB] to-[#6FB4FF]">BUY NOW</button>
+                <button className="my-7  w-[180px] h-[56px] active:scale-95 rounded-2xl text-white font-semibold bg-gradient-to-r from-[#75CCEB] to-[#6FB4FF]">BUY NOW</button>
             
         </div>
         <div className="flex items-center justify-center lg:w-[50vw] w-full h-full right ">
