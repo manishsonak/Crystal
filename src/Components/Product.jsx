@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import Card from "./Card";
 
@@ -169,7 +170,7 @@ function Product() {
   const handleonchange = (event) => {
     setFilter(event.target.value);
     const selectedValue = event.target.value;
-    console.log(selectedValue, selectedValue==="All Product");
+    
     
 
     if (selectedValue === "All Product") {
@@ -191,7 +192,7 @@ function Product() {
 
   const handleonchangesort = (event) => {
     setsort(event.target.value);
-    console.log(event.target.value);
+    
     
     const selectedValue = event.target.value;
 
@@ -214,12 +215,12 @@ function Product() {
         All product
       </h1>
       <div className="flex flex-col px-8 mt-9 filters lg:flex-row lg:gap-14">
-        <div className="flex items-center gap-1">
+        <div className="flex items-center justify-between gap-2 mb-2 lg:justify-start lg:mb-0">
           <p className="text-[#9AB0C0] font-bold">Filter:</p>
           <select
             onChange={handleonchange}
             value={filter}
-            className="block w-36 px-2 py-2  font-bold leading-tight border border-none rounded-lg outline-none text-[#31546D]"
+            className="block w-36 px-2 py-2 flex-1  font-bold leading-tight border border-none rounded-lg outline-none text-[#31546D]"
             name="filter"
             id="filter"
           >
@@ -230,12 +231,12 @@ function Product() {
             ))}
           </select>
         </div>
-        <div className="flex items-center gap-1">
+        <div className="flex items-center justify-between gap-1 lg:justify-start">
           <p className="text-[#9AB0C0] font-bold">Sort:</p>
           <select
           onChange={handleonchangesort}
           value={sort}
-            className="block w-36 px-3 py-2 pr-2 font-bold leading-tight border border-none rounded-lg outline-none text-[#31546D]"
+            className="block w-36 px-3 py-2 pr-2 font-bold flex-1 leading-tight border border-none rounded-lg outline-none text-[#31546D]"
             name="filter"
             id="filter"
           >
